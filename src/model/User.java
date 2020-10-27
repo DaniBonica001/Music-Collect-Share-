@@ -44,10 +44,11 @@ public class User{
 	}
 
 	public String toString(){
-		return "*************  User **************"+
+		return "\n"+
+				"*************  User **************"+
 				"\n**UserName: "+username+
 				"\n**Age: "+age+
 				"\n**Category: "+category+
-				"***********************************";			
+				"\n***********************************";			
 	}
 }

@@ -1,4 +1,4 @@
 package model;
-public class PublicPL{
+public class PublicPL extends Playlist{
 	
 }

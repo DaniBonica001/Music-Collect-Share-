@@ -34,4 +34,14 @@ public class Playlist{
 		return genres;
 	}
 
+	public String toString(){
+		return "\n"+
+				"**************  Playlist **************"+
+				"\n**  Title: "+name+
+				"\n**  Duration: "+ duration+
+				"\n**  Genre: "+genres+
+				"\n***********************************";
+
+	}
+
 }

@@ -51,10 +51,11 @@ public class Song{
 		return genre;
 	}
 	public String toString(){
-		return "**************  Song **************"+
-				"\n**  Title: "+title;
-				"\n**  Artist: "+singer;
-				"\n**  Duration: "+ duration;
+		return "\n"+
+				"**************  Song **************"+
+				"\n**  Title: "+title+
+				"\n**  Artist: "+singer+
+				"\n**  Duration: "+ duration+
 				"\n**  Genre: "+genre+
 				"\n***********************************";
 

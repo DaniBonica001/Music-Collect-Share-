@@ -16,6 +16,7 @@ public class Main{
 				"\n(2)Crear una cancion"+
 				"\n(7)Listar los usuarios"+
 				"\n(8)Listar las canciones del pool"+
+				"\n(9)Listar las playlists"+
 				"\n(0)Salir");
 			int option= lector.nextInt();
 			switch(option){
@@ -25,13 +26,17 @@ public class Main{
 				case 2: createSong();
 				break;
 
-				case 7: objMcs.showUsers();
+				case 7: System.out.println(objMcs.showUsers());
 				break;
 
-				case 8: objMcs.showPool();
+				case 8: System.out.println(objMcs.showPool());
 				break;
 
-				case 0: "¡Bye!";
+				case 9: System.out.println(objMcs.showPlaylists());
+				break;
+
+				case 0: System.out.println("¡Bye!");
+				menu=false;
 				break;
 
 			}

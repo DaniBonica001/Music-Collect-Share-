@@ -110,35 +110,38 @@ public class Mcs{
 		}
 	return message+" Y "+m;
 	}
-
+	
 	public String updateCategory(String name){
 		String message="";
 		int amount=0;
 		boolean exit=false;
+		User objFindUser=null;
 		for (int i=0;i<users.length && !exit;i++){
-			if (users[i].getUserName().equalsIgnoreCase(name)){
-				amount=counter[i]+1;				
-			}
-
-			if (amount >3 && amount<10){
-				message="Se ha actualizado su categoria a: Little contributor";
-				users[i].setCategory(Category.LITTLE_CONTRIBUTOR);			
-			}else if (amount>=10 && amount<30){
-				message="Se ha actualizado su categoria a: Mild contributor";
-				users[i].setCategory(Category.MILD_CONTRIBUTOR);			
-			}else if (amount>=30){
-				message="Se ha actualizado su categoria a: Star contributor";
-				users[i].setCategory(Category.STAR_CONTRIBUTOR);			
-			}	
-				
+			if (users[i]!=null && users[i].getUserName().equalsIgnoreCase(name)){
+				objFindUser=users[i];
+				counter[i]+=1;
+				amount= counter[i];
+				exit=true;
+			}			
 		}
+		if (amount >3 && amount<10){
+			message="Se ha actualizado su categoria a: Little contributor";
+			objFindUser.setCategory(Category.LITTLE_CONTRIBUTOR);				
+		}else if (amount>=10 && amount<30){
+			message="Se ha actualizado su categoria a: Mild contributor";
+			objFindUser.setCategory(Category.MILD_CONTRIBUTOR);				
+		}else if (amount>=30){
+			message="Se ha actualizado su categoria a: Star contributor";
+			objFindUser.setCategory(Category.STAR_CONTRIBUTOR);					
+		}	
 	return message;
 	}
+	
 
 	public String showUsers(){
 		String message="";
 		for (int i=0;i<users.length;i++){
-			if (users!=null){
+			if (users[i]!=null){
 				message+=users[i].toString();
 			}		
 		}
@@ -150,8 +153,18 @@ public class Mcs{
 	public String showPool(){
 		String message="";
 		for (int i=0;i<pool.length;i++){
-			if (pool!=null){
+			if (pool[i]!=null){
 				message+=pool[i].toString();
+			}		
+		}						
+	return message;
+	}
+
+	public String showPlaylists(){
+		String message="";
+		for (int i=0;i<playlists.length;i++){
+			if (playlists[i]!=null){
+				message+=playlists[i].toString();
 			}		
 		}						
 	return message;
