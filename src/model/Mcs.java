@@ -44,6 +44,18 @@ public class Mcs{
 	return objSong;
 	}
 
+	public Playlist findPlaylist(String name){
+		Playlist objPlaylist=null;
+		boolean exit=false;
+		for (int i=0;i<playlists.length;i++){
+			if (playlists[i]!=null && playlists[i].getName().equalsIgnoreCase(name)){
+				objPlaylist=playlists[i];
+				exit=true;
+			}
+		}
+	return objPlaylist;
+	}
+
 	public String createUser(String name, String password,int age){
 		String message="";
 		boolean exit=false;
@@ -104,7 +116,6 @@ public class Mcs{
 				message="Error. El arreglo de canciones ya esta lleno";
 			}
 
-
 		}else{
 			message="No se encontro el usuario";
 		}
@@ -136,6 +147,189 @@ public class Mcs{
 		}	
 	return message;
 	}
+
+	public String createPlaylist(String name, String user){
+		User objFindUser=findUser(user);
+		Playlist findPlaylist=findPlaylist(name);
+		String message="";
+		boolean exit=false;
+
+		if (objFindUser!=null){
+
+			if (findPlaylist!=null){
+				message="Error. Ya existe una playlist con ese nombre";
+
+			}else {
+
+				for (int i=0;i<playlists.length && !exit;i++){
+					if (playlists[i]==null){
+						playlists[i]= new PrivatePL(name,objFindUser);
+						exit=true;
+						message="Se ha creado la playlist";
+					}
+				}
+
+				if (exit==false){
+					message="No se pueden crear mas playlists";
+				}
+			}
+
+		}else{
+			message="El usuario ingresado no existe y no se puede crear la playlist";
+		}
+			
+
+		
+	return message;
+	}
+
+	public String createPlaylist(String name){
+		Playlist findPlaylist=findPlaylist(name);
+		String message="";
+		boolean exit=false;
+
+		if (findPlaylist!=null){
+			message="Error. Ya existe una playlist con ese nombre";
+		}else {
+			for (int i=0;i<playlists.length && !exit;i++){
+				if (playlists[i]==null){
+					playlists[i]= new PublicPL(name);
+					exit=true;
+					message="Se ha creado la playlist";
+				}
+			}		
+			
+		}
+	return message;
+	}
+	
+	public String createPlaylist(String name,int amount, String[] users){
+		User []adminUsers= new User [amount];
+		String message="";
+		User objFindUser=null;
+		for (int i=0;i<users.length;i++){
+			objFindUser=findUser(users[i]);
+			if (objFindUser!=null){
+				adminUsers[i]=objFindUser;
+				message="Usuario encontrado";
+			}
+		}
+
+		Playlist findPlaylist=findPlaylist(name);		
+		boolean exit=false;
+
+		if (findPlaylist!=null){
+			message="Error. Ya existe una playlist con ese nombre";
+		}else {
+			if (objFindUser!=null){
+				for (int i=0;i<playlists.length && !exit;i++){
+					if (playlists[i]==null){
+						playlists[i]= new RestrictedPL(name,adminUsers);
+						exit=true;
+						message="Se ha creado la playlist";
+					}
+				}
+			}else{
+				message="El usuario ingresado no existe y no se puede crear la playlist";
+			}
+			
+		}
+	return message;
+	}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 
 	public String showUsers(){

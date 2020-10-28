@@ -1,5 +1,13 @@
 package model;
 public class RestrictedPL extends Playlist{
-	//atributes 
-	private int grade;//podria ser un arreglo con las calificaciones
+	//Atributes 
+	private User [] consumers;
+	//Methods	
+	public RestrictedPL(String name, User[]users){
+		super(name);
+		consumers=users;
+	}
+
+
+	
 }
