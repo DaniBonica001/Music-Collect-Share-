@@ -1,6 +1,6 @@
 package model;
 public class Mcs{
-	//Consants
+	//Constants
 	public final static int MAX_PLAYLIST=20;
 	public final static int MAX_SONGS=50;
 	public final static int MAX_USERS=10;
@@ -17,7 +17,7 @@ public class Mcs{
 		counter= new int[MAX_USERS];
 	}
 
-
+	
 	public User findUser(String name){
 		User objUser=null;
 		boolean exit=false;
@@ -176,8 +176,7 @@ public class Mcs{
 
 		}else{
 			message="El usuario ingresado no existe y no se puede crear la playlist";
-		}
-			
+		}			
 
 		
 	return message;
@@ -203,15 +202,17 @@ public class Mcs{
 	return message;
 	}
 	
-	public String createPlaylist(String name,int amount, String[] users){
+	public String createPlaylist(String name,int amount, String[] owners){
 		User []adminUsers= new User [amount];
 		String message="";
 		User objFindUser=null;
-		for (int i=0;i<users.length;i++){
-			objFindUser=findUser(users[i]);
+		for (int i=0;i<owners.length;i++){
+			objFindUser=findUser(owners[i]);
 			if (objFindUser!=null){
 				adminUsers[i]=objFindUser;
 				message="Usuario encontrado";
+			}else{
+				message="El usuario no existe";
 			}
 		}
 
@@ -233,6 +234,44 @@ public class Mcs{
 				message="El usuario ingresado no existe y no se puede crear la playlist";
 			}
 			
+		}
+	return message;
+	}
+
+
+
+	public void gradePlaylist(String playlistName,int grade){
+		Playlist objPlaylist=findPlaylist(playlistName);
+		if (objPlaylist!=null){
+			objPlaylist.gradePlaylist(grade);			
+		}
+
+	}
+
+
+	public String addSong(String playlist,String userName, String song,String singer){
+		Playlist objPlaylist=findPlaylist(playlist);
+		User objUser=findUser(userName);
+		Song objSong=findSong(song,singer);
+		String message="";
+
+		if (objPlaylist==null || objUser==null || objSong==null){
+
+			if (objPlaylist==null){
+				message+="Error. No se ha encontrado la playlist ingresada";
+			}
+
+			if (objUser==null){
+				message+="Error. No se ha encontrado el usuario";			
+			}
+
+			if (objSong==null){
+				message+="Error.No se ha encontrado la cancion";
+			}
+
+		}else{
+			objPlaylist.addSong(objUser,objSong);
+			message="Se registrara la cancion";
 		}
 	return message;
 	}

@@ -50,12 +50,28 @@ public class Song{
 	public Genre getGenre(){
 		return genre;
 	}
+
+	public String uploadDuration(int duration){
+		String message="";
+		int segundos,min,horas,seg;
+		  if (duration<=60){
+		  		message=duration+"segundos";
+		  }else{
+		  	segundos=(int)duration%60;
+		  	seg=(int)duration/60;
+		  	min=seg%60;
+		  	horas=seg/60;
+		  	message=horas+" horas "+min+" minutos "+segundos+" segundos";
+		  }
+	return message;
+	}
+
 	public String toString(){
 		return "\n"+
 				"**************  Song **************"+
 				"\n**  Title: "+title+
 				"\n**  Artist: "+singer+
-				"\n**  Duration: "+ duration+
+				"\n**  Duration: "+uploadDuration(duration)+
 				"\n**  Genre: "+genre+
 				"\n***********************************";
 

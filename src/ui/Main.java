@@ -11,13 +11,15 @@ public class Main{
 		boolean menu=true;
 
 		while (menu) {
-			System.out.println("Menú principal, ingrese una opcion"+
+			System.out.println("\nMenu principal, ingrese una opcion"+
 				"\n(1)Crear un nuevo usuario"+
 				"\n(2)Crear una cancion"+
 				"\n(3)Crear una playlist"+
-				"\n(7)Listar los usuarios"+
-				"\n(8)Listar las canciones del pool"+
-				"\n(9)Listar las playlists"+
+				"\n(4)Calificar una playlist"+
+				"\n(5)Añadir cancion a una playlist"+
+				"\n(6)Listar los usuarios"+
+				"\n(7)Listar las canciones del pool"+
+				"\n(8)Listar las playlists"+
 				"\n(0)Salir");
 			int option= lector.nextInt();
 			lector.nextLine();
@@ -29,18 +31,29 @@ public class Main{
 				break;
 
 				case 3: createPlaylist();
-
-				case 7: System.out.println(objMcs.showUsers());
 				break;
 
-				case 8: System.out.println(objMcs.showPool());
+				case 4: gradePlaylist();
 				break;
 
-				case 9: System.out.println(objMcs.showPlaylists());
+				case 5: addSong();
+				break;
+
+				case 6: System.out.println(objMcs.showUsers());
+				break;
+
+				case 7: System.out.println(objMcs.showPool());
+				break;
+
+				case 8: System.out.println(objMcs.showPlaylists());
 				break;
 
 				case 0: System.out.println("¡Bye!");
 				menu=false;
+				break;
+
+				default:
+				System.out.println("Opcion incorrecta");
 				break;
 
 			}
@@ -110,9 +123,9 @@ public class Main{
 		switch(option){
 			case 1:
 			System.out.println("Ingrese el nombre del usuario con acceso a la playlist");
-			String user= lector.nextLine();
+			String owner= lector.nextLine();
 
-			objMcs.createPlaylist(name,user);
+			objMcs.createPlaylist(name,owner);
 			break;
 
 			case 2:
@@ -123,18 +136,47 @@ public class Main{
 			System.out.println("Ingrese la cantidad de usuarios que tendran acceso a la playlist");
 			int amount=lector.nextInt();
 			lector.nextLine();
-			String []users= new String [amount];
-			for (int i=0;i<users.length;i++){
+			String []owners= new String [amount];
+			for (int i=0;i<owners.length;i++){
 				System.out.println("Ingrese el nombre del usuario");
-				users[i]=lector.nextLine();
+				owners[i]=lector.nextLine();
 			}
 
-			objMcs.createPlaylist(name,amount,users);
+			objMcs.createPlaylist(name,amount,owners);
 			break;
 
 			default:
 			System.out.println("Opcion incorrecta");
+			break;
 		}
+
+	}
+
+	public static void gradePlaylist(){
+		System.out.println("Ingrese el nombre de la playlist a calificar");
+		String playlistName= lector.nextLine();
+		System.out.println("Califique la playlist con un valor entre (1)la nota mas baja y (5)la nota mas alta");
+		int grade=lector.nextInt();
+		lector.nextLine();
+
+		objMcs.gradePlaylist(playlistName,grade);
+	}
+
+
+	public static void addSong(){
+		System.out.println("Ingrese el nombre donde la playlist donde desea añadir la cancion");
+		String playlist=lector.nextLine();
+
+		System.out.println("Ingrese su nombre de usuario para verificar permisos");
+		String userName=lector.nextLine();
+
+		System.out.println("Ingrese el nombre de la cancion que desea añadir");
+		String song=lector.nextLine();
+
+		System.out.println("Ingrese el nombre del artista ");
+		String singer=lector.nextLine();
+
+		objMcs.addSong(playlist,userName,song,singer);
 
 	}
 	
