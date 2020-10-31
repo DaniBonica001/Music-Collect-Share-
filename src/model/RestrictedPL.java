@@ -48,12 +48,10 @@ public class RestrictedPL extends Playlist{
 		"**************  Playlist **************"+
 		"\n**  Title: "+getName()+
 		"\n**  Usuarios: "+showUsers()+
-		"\n**  Duration: "+ getDuration()+
-		"\n**  Genre: "+getGenres()+
+		"\n**  Duration: "+ uploadDuration()+
+		"\n**  Genre: "+uploadGenres()+
 		"\n***********************************";
 
-	}
-
-  
+	}  
 	
 }

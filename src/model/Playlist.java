@@ -7,6 +7,8 @@ public class Playlist{
 	private int duration;
 	private Song []songs;
 	private Genre []genres;
+
+	int completeDuration=0;
 	//Methods
 	public Playlist(String nam){
 		name=nam;
@@ -38,7 +40,8 @@ public class Playlist{
 	}
 
 
-	public void gradePlaylist(int grade){
+	public int gradePlaylist(int grade){
+		return grade;
 	}
 
 
@@ -75,14 +78,39 @@ public class Playlist{
 	return message;
 	}
 
-	public String toString(){
-		return "\n"+
-				"**************  Playlist **************"+
-				"\n**  Title: "+name+
-				"\n**  Duration: "+ duration+
-				"\n**  Genre: "+genres+
-				"\n***********************************";
 
+	public String uploadDuration(){
+		int segundos,min,horas,seg;
+		String message="";
+		for (int i=0;i<songs.length;i++){
+			if (songs[i]!=null){
+				completeDuration+=songs[i].getDuration();
+			}
+		}
+
+		if (completeDuration<60){
+			message=completeDuration+" segundos";
+
+		} else{
+		  	segundos=(int)completeDuration%60;
+		  	seg=(int)completeDuration/60;
+		  	min=seg%60;
+		  	horas=seg/60;
+		  	message=horas+" horas "+min+" minutos "+segundos+" segundos";
+		}
+
+	return message;
 	}
 
+
+	public String uploadGenres(){
+		String message="";
+		for (int i=0;i<songs.length;i++){
+			if (songs[i]!=null){
+				message+=songs[i].getGenre()+",";
+			}
+		}
+	return message;
+	}
+	
 }

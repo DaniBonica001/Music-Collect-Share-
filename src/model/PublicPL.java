@@ -2,6 +2,7 @@ package model;
 public class PublicPL extends Playlist{
 	//Atributes 
 	private int grade;//podria ser un arreglo con las calificaciones
+	int counter=0;
 	//Methods
 	public PublicPL(String name){
 		super(name);
@@ -15,8 +16,12 @@ public class PublicPL extends Playlist{
 		return grade;
 	}
 
-	public void gradePlaylist(int grades){
-		grade=grades;
+	public int gradePlaylist(int grade){
+		grade=super.gradePlaylist(grade);
+		counter+=1;
+		int average= (int)grade/counter;
+
+	return average;
 	}
 
 
@@ -25,15 +30,13 @@ public class PublicPL extends Playlist{
 	return message;
 	}
 
-
-
 	public String toString(){
 		return "\n"+
 		"**************  Playlist **************"+
 		"\n**  Title: "+getName()+		
-		"\n**  Duration: "+ getDuration()+
-		"\n**  Genre: "+getGenres()+
-		"\n**  Calificacion promedio: "+grade+//corregir
+		"\n**  Duration: "+uploadDuration()+
+		"\n**  Genre: "+uploadGenres()+
+		"\n**  Calificacion promedio: "+gradePlaylist(grade)+//corregir
 		"\n***********************************";
 
 	}

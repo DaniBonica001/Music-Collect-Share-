@@ -70,6 +70,9 @@ public class Mcs{
 					message="Se ha registrado el usuario exitosamente";
 				}				
 			}
+			if (exit==false){
+				message="Error. No se pueden crear mas usuarios";
+			}
 		}
 	return message;
 	}
@@ -253,7 +256,7 @@ public class Mcs{
 		Playlist objPlaylist=findPlaylist(playlist);
 		User objUser=findUser(userName);
 		Song objSong=findSong(song,singer);
-		String message="";
+		String message="Se registrara la cancion";
 
 		if (objPlaylist==null || objUser==null || objSong==null){
 
@@ -270,106 +273,11 @@ public class Mcs{
 			}
 
 		}else{
-			objPlaylist.addSong(objUser,objSong);
-			message="Se registrara la cancion";
+			message+=objPlaylist.addSong(objUser,objSong);
+			
 		}
 	return message;
-	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
+	}	
 
 	public String showUsers(){
 		String message="";

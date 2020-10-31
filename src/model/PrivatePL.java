@@ -35,14 +35,10 @@ public class PrivatePL extends Playlist{
 		"**************  Playlist **************"+
 		"\n**  Title: "+getName()+
 		"\n**  Usuario: "+ owner.getUserName()+
-		"\n**  Duration: "+ getDuration()+
-		"\n**  Genre: "+getGenres()+
+		"\n**  Duration: "+ uploadDuration()+
+		"\n**  Genre: "+uploadGenres()+
 		"\n***********************************";
 
 	}
-
-
-
-
 	
 }

@@ -16,7 +16,7 @@ public class Main{
 				"\n(2)Crear una cancion"+
 				"\n(3)Crear una playlist"+
 				"\n(4)Calificar una playlist"+
-				"\n(5)Añadir cancion a una playlist"+
+				"\n(5)Anadir cancion a una playlist"+
 				"\n(6)Listar los usuarios"+
 				"\n(7)Listar las canciones del pool"+
 				"\n(8)Listar las playlists"+
@@ -111,6 +111,7 @@ public class Main{
 	}
 
 	public static void createPlaylist(){
+		String message;
 		System.out.println("Ingrese el nombre de la playlist");
 		String name=lector.nextLine();
 		System.out.println("Ingrese que tipo de playlist desea crear:"+
@@ -125,11 +126,13 @@ public class Main{
 			System.out.println("Ingrese el nombre del usuario con acceso a la playlist");
 			String owner= lector.nextLine();
 
-			objMcs.createPlaylist(name,owner);
+			message=objMcs.createPlaylist(name,owner);
+			System.out.println(message);
 			break;
 
 			case 2:
-			objMcs.createPlaylist(name);
+			message=objMcs.createPlaylist(name);
+			System.out.println(message);
 			break;
 
 			case 3:
@@ -142,7 +145,8 @@ public class Main{
 				owners[i]=lector.nextLine();
 			}
 
-			objMcs.createPlaylist(name,amount,owners);
+			message=objMcs.createPlaylist(name,amount,owners);
+			System.out.println(message);
 			break;
 
 			default:
@@ -153,30 +157,33 @@ public class Main{
 	}
 
 	public static void gradePlaylist(){
+		
 		System.out.println("Ingrese el nombre de la playlist a calificar");
 		String playlistName= lector.nextLine();
 		System.out.println("Califique la playlist con un valor entre (1)la nota mas baja y (5)la nota mas alta");
 		int grade=lector.nextInt();
 		lector.nextLine();
 
-		objMcs.gradePlaylist(playlistName,grade);
+		objMcs.gradePlaylist(playlistName,grade);		
 	}
 
 
 	public static void addSong(){
-		System.out.println("Ingrese el nombre donde la playlist donde desea añadir la cancion");
+		System.out.println("Ingrese el nombre donde la playlist donde desea anadir la cancion");
 		String playlist=lector.nextLine();
 
 		System.out.println("Ingrese su nombre de usuario para verificar permisos");
 		String userName=lector.nextLine();
 
-		System.out.println("Ingrese el nombre de la cancion que desea añadir");
+		System.out.println("Ingrese el nombre de la cancion que desea anadir");
 		String song=lector.nextLine();
 
 		System.out.println("Ingrese el nombre del artista ");
 		String singer=lector.nextLine();
 
-		objMcs.addSong(playlist,userName,song,singer);
+		String message;
+		message=objMcs.addSong(playlist,userName,song,singer);
+		System.out.println(message);
 
 	}
 	
