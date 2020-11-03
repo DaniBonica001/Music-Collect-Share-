@@ -43,6 +43,13 @@ public class RestrictedPL extends Playlist{
 	return message;
 	}
 
+	/**
+	* <b>Name: toString</b>
+	* This method allow to show all the information of a restricted playlist.
+	* <b>Pre:</b>The playlist must already been created. 
+	* <b>Post:</b>The information of the playlist was shown successfully.
+	* @return The information of the restricted playlist.
+	*/
 	public String toString(){
 		return "\n"+
 		"**************  Playlist **************"+

@@ -1,6 +1,6 @@
 package model;
 public class PrivatePL extends Playlist{
-	//Atribute
+	//Relation
 	private User owner;
 	//Methods
 	public PrivatePL(String name,User user){
@@ -30,6 +30,13 @@ public class PrivatePL extends Playlist{
 	return message;
 	}
 
+	/**
+	* <b>Name: toString</b>
+	* This method allow to show all the information of a private playlist.
+	* <b>Pre:</b>The playlist must already been created. 
+	* <b>Post:</b>The information of the playlist was shown successfully.
+	* @return The information of the private playlist.
+	*/
 	public String toString(){
 		return "\n"+
 		"**************  Playlist **************"+

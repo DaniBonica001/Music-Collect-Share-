@@ -55,16 +55,25 @@ public class Main{
 				default:
 				System.out.println("Opcion incorrecta");
 				break;
-
 			}
 		}
-
 	}
 
+	/**
+	* <b>Name: createMcs</b><br>
+	* This method is to create an object of the Mcs class.
+	* <b>Post:</b> The object of the Mcs class has been created.
+	*/
 	public static void createMcs(){
 		objMcs= new Mcs();		
 	}
 
+	/**
+	* <b>Name: createUser</b><br>
+	* This method allow to create an user and save it in the users array.
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* <b>Post:</b> The user has been created successfully.
+	*/
 	public static void createUser(){
 		System.out.println("Ingrese su nombre de usuario");
 		String name= lector.next();lector.nextLine();
@@ -79,6 +88,13 @@ public class Main{
 		message=objMcs.createUser(name,password,age);
 		System.out.println(message);
 	}
+
+	/**
+	* <b>Name: createSong</b><br>
+	* This meethod allow to create a song and incluide it in the song's pool.
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* <b>Post:</b> The song has been created successfully.
+	*/
 	public static void createSong(){
 		System.out.println("Ingrese el nombre del usuario que registrara una cancion");
 		String name= lector.next();lector.nextLine();
@@ -110,6 +126,12 @@ public class Main{
 		System.out.println(message);
 	}
 
+	/**
+	* <b>Name: createPlaylist</b><br>
+	* This method allow to create a playlist of any of the three types: private, public or restricted.
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* <b>Post:</b> The playlist has been created successfully.
+	*/
 	public static void createPlaylist(){
 		String message;
 		System.out.println("Ingrese el nombre de la playlist");
@@ -156,8 +178,13 @@ public class Main{
 
 	}
 
-	public static void gradePlaylist(){
-		
+	/**
+	* <b>Name: gradePlaylist</b><br>
+	* This method allow to grade a playlist.
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* <b>Post:</b> The playlist has been graded.
+	*/
+	public static void gradePlaylist(){		
 		System.out.println("Ingrese el nombre de la playlist a calificar");
 		String playlistName= lector.nextLine();
 		System.out.println("Califique la playlist con un valor entre (1)la nota mas baja y (5)la nota mas alta");
@@ -167,7 +194,12 @@ public class Main{
 		objMcs.gradePlaylist(playlistName,grade);		
 	}
 
-
+	/**
+	* <b>Name: addSong</b><br>
+	* This method allow to add songs from the song's pool to a playlist private, public or restricted.
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* <b>Post:</b> The song has been added to the playlist that the user wants.
+	*/
 	public static void addSong(){
 		System.out.println("Ingrese el nombre donde la playlist donde desea anadir la cancion");
 		String playlist=lector.nextLine();
@@ -184,10 +216,5 @@ public class Main{
 		String message;
 		message=objMcs.addSong(playlist,userName,song,singer);
 		System.out.println(message);
-
 	}
-	
-
-
-
 }

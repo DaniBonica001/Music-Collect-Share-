@@ -5,8 +5,10 @@ public class Playlist{
 	//Atributes
 	private String name;
 	private int duration;
-	private Song []songs;
 	private Genre []genres;
+	
+	//Relations
+	private Song []songs;	
 
 	int completeDuration=0;
 	//Methods
@@ -40,7 +42,7 @@ public class Playlist{
 	}
 
 
-	public int gradePlaylist(int grade){
+	public int gradePlaylist(int grade){ //Falta ponerlo en el diagrama 
 		return grade;
 	}
 

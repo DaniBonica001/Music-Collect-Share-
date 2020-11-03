@@ -42,7 +42,14 @@ public class User{
 	public Category getCategory(){
 		return category;
 	}
-
+	
+	/**
+	* <b>Name: toString</b>
+	* This method allow to show all the information of a user.
+	* <b>Pre:</b>The user must already been created. username!="", password!= "", age!= null, category!=null.
+	* <b>Post:</b>The information of the user was shown successfully.
+	* @return The information of the user.
+	*/
 	public String toString(){
 		return "\n"+
 				"*************  User **************"+

@@ -30,6 +30,13 @@ public class PublicPL extends Playlist{
 	return message;
 	}
 
+	/**
+	* <b>Name: toString</b>
+	* This method allow to show all the information of a public playlist.
+	* <b>Pre:</b>The playlist must already been created. 
+	* <b>Post:</b>The information of the playlist was shown successfully.
+	* @return The information of the public playlist.
+	*/
 	public String toString(){
 		return "\n"+
 		"**************  Playlist **************"+
