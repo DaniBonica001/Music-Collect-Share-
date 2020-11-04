@@ -5,7 +5,7 @@ public class Playlist{
 	//Atributes
 	private String name;
 	private int duration;
-	private Genre genres;
+	private Genre[] genres;
 	
 	//Relations
 	private Song []songs;	
@@ -15,7 +15,7 @@ public class Playlist{
 	public Playlist(String nam){
 		name=nam;
 		duration=0;
-		genres=null;
+		genres=new Genre [7];
 		songs=new Song [Mcs.MAX_SONGS];
 
 	}
@@ -34,10 +34,10 @@ public class Playlist{
 		return duration;
 	}
 	//Set and get of []genres
-	public void setGenres(Genre genres){
+	public void setGenres(Genre[] genres){
 		this.genres=genres;
 	}
-	public Genre getGenres(){
+	public Genre[] getGenres(){
 		return genres;
 	}
 
@@ -128,10 +128,28 @@ public class Playlist{
 	* @return message String. Variable with the genres of the playlist.
 	*/
 	public String uploadGenres(){
+		
 		String message="";
 		for (int i=0;i<songs.length;i++){
 			if (songs[i]!=null){
-				message+=songs[i].getGenre()+",";
+				boolean exit=false;
+				for (int j=0;j<genres.length && !exit;j++){					
+
+					if (genres[j]==null){
+						genres[j]=songs[i].getGenre();
+						exit=true;
+					}else if (genres[j]!=null && songs[i].getGenre().name().equalsIgnoreCase(genres[j].name())){
+						exit=true;						
+					}
+				}
+				
+			}
+		}
+
+
+		for (int x=0;x<genres.length;x++){
+			if (genres[x]!=null){
+				message+=genres[x].name()+",";
 			}
 		}
 	return message;
