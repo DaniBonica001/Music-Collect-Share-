@@ -53,9 +53,9 @@ public class Song{
 	
 	/**
 	* <b>Name: uploadDurartion</b>
-	* This method allow to become the duration of a song from seconds to hours, minutes and seconds. 
-	* <b>Post:</b> The duration of the song was changed from second to hours, minutes and seconds successfully.
-	* @param duration int. Variable with the duration of a song in seconds.duration!=null.
+	* This method allow to become the duration of a song from seconds to hours, minutes and seconds. <br>
+	* <b>Post:</b> The duration of the song was changed from second to hours, minutes and seconds successfully.<br>
+	* @param duration int. Variable with the duration of a song in seconds.duration!=null.<br>
 	* @return message String. Variable with the duration of the song in hours, minutes and seconds.
 	*/
 	public String uploadDuration(int duration){
@@ -75,9 +75,9 @@ public class Song{
 
 	/**
 	* <b>Name: toString</b>
-	* This method allow to show all the information of a song.
-	* <b>Pre:</b>The song must already been created. title!="", singer!= "", releaseDate!="", duration!=null, genre!=null.
-	* <b>Post:</b>The information of the song was shown successfully.
+	* This method allow to show all the information of a song.<br>
+	* <b>Pre:</b>The song must already been created. title!="", singer!= "", releaseDate!="", duration!=null, genre!=null.<br>
+	* <b>Post:</b>The information of the song was shown successfully.<br>
 	* @return The information of the song.
 	*/
 	public String toString(){

@@ -5,7 +5,7 @@ public class Playlist{
 	//Atributes
 	private String name;
 	private int duration;
-	private Genre []genres;
+	private Genre genres;
 	
 	//Relations
 	private Song []songs;	
@@ -34,19 +34,22 @@ public class Playlist{
 		return duration;
 	}
 	//Set and get of []genres
-	public void setGenres(Genre[]genres){
+	public void setGenres(Genre genres){
 		this.genres=genres;
 	}
-	public Genre[] getGenres(){
+	public Genre getGenres(){
 		return genres;
 	}
 
-
-	public int gradePlaylist(int grade){ //Falta ponerlo en el diagrama 
-		return grade;
-	}
-
-
+	/**
+	* <b>Name: addSong</b><br>
+	* This method allow to add songs to a playlist without care if is a private or restricted playlist.<br>
+	* <b>Pre:</b> The playlist must be created.<br>
+	* <b>Post:</b> The song has been added to a playlist.<br>
+	* @param userName User. An object from the User class. userName!=null.<br>
+	* @param song Song. An object from the Song class. song!=null.<br>
+	* @return message String. Message that confirm or deny if the song was added.
+	*/
 	public String addSong(User userName,Song song){
 		boolean exit=false;
 		String message="";
@@ -63,7 +66,14 @@ public class Playlist{
 	return message;
 	}
 
-
+	/**
+	* <b>Name: addSong</b><br>
+	* This method allow to add songs to a public playlist.<br>
+	* <b>Pre:</b> The playlist must be created.<br>
+	* <b>Post:</b> The song has been added to a public playlist.<br>
+	* @param song Song. An object from the Song class. song!=null.<br>
+	* @return message String. Message that confirm or deny if the song was added.
+	*/
 	public String addSong(Song song){
 		boolean exit=false;
 		String message="";
@@ -80,7 +90,13 @@ public class Playlist{
 	return message;
 	}
 
-
+	/**
+	* <b>Name: uploadDurartion</b>
+	* This method allow to calculate the complete duration of the playlist and become it from seconds to hours, minutes and seconds.<br>
+	* <b>Pre:</b> The songs array of the playlist must be initialized. songs!=null.<br>
+	* <b>Post:</b> The duration of the playlist was calculated and it was become it from seconds to hours, minutes and seconds.<br>
+	* @return message String. Variable with the duration of the song in hours, minutes and seconds.
+	*/
 	public String uploadDuration(){
 		int segundos,min,horas,seg;
 		String message="";
@@ -104,7 +120,13 @@ public class Playlist{
 	return message;
 	}
 
-
+	/**
+	* <b>Name: uploadGenres</b>
+	* This method allow to upload all the genres from a playlist.<br>
+	* <b>Pre:</b> The songs array of the playlist must be initialized. songs!=null.<br>
+	* <b>Post:</b> The genres of the playlist was uploaded.<br>
+	* @return message String. Variable with the genres of the playlist.
+	*/
 	public String uploadGenres(){
 		String message="";
 		for (int i=0;i<songs.length;i++){

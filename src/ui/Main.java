@@ -61,8 +61,8 @@ public class Main{
 
 	/**
 	* <b>Name: createMcs</b><br>
-	* This method is to create an object of the Mcs class.
-	* <b>Post:</b> The object of the Mcs class has been created.
+	* This method is to create an object of the Mcs class.<br>
+	* <b>Post:</b> The object of the Mcs class has been created.<br>
 	*/
 	public static void createMcs(){
 		objMcs= new Mcs();		
@@ -70,8 +70,8 @@ public class Main{
 
 	/**
 	* <b>Name: createUser</b><br>
-	* This method allow to create an user and save it in the users array.
-	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* This method allow to create an user and save it in the users array.<br>
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.<br>
 	* <b>Post:</b> The user has been created successfully.
 	*/
 	public static void createUser(){
@@ -91,8 +91,8 @@ public class Main{
 
 	/**
 	* <b>Name: createSong</b><br>
-	* This meethod allow to create a song and incluide it in the song's pool.
-	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* This meethod allow to create a song and incluide it in the song's pool.<br>
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.<br>
 	* <b>Post:</b> The song has been created successfully.
 	*/
 	public static void createSong(){
@@ -128,8 +128,8 @@ public class Main{
 
 	/**
 	* <b>Name: createPlaylist</b><br>
-	* This method allow to create a playlist of any of the three types: private, public or restricted.
-	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* This method allow to create a playlist of any of the three types: private, public or restricted.<br>
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.<br>
 	* <b>Post:</b> The playlist has been created successfully.
 	*/
 	public static void createPlaylist(){
@@ -180,8 +180,8 @@ public class Main{
 
 	/**
 	* <b>Name: gradePlaylist</b><br>
-	* This method allow to grade a playlist.
-	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* This method allow to grade a playlist.<br>
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.<br>
 	* <b>Post:</b> The playlist has been graded.
 	*/
 	public static void gradePlaylist(){		
@@ -196,8 +196,8 @@ public class Main{
 
 	/**
 	* <b>Name: addSong</b><br>
-	* This method allow to add songs from the song's pool to a playlist private, public or restricted.
-	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.
+	* This method allow to add songs from the song's pool to a playlist private, public or restricted.<br>
+	* <b>Pre:</b> The objMcs object must already be created. objMcs!=null.<br>
 	* <b>Post:</b> The song has been added to the playlist that the user wants.
 	*/
 	public static void addSong(){

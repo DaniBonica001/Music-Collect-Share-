@@ -45,8 +45,8 @@ public class User{
 	
 	/**
 	* <b>Name: toString</b>
-	* This method allow to show all the information of a user.
-	* <b>Pre:</b>The user must already been created. username!="", password!= "", age!= null, category!=null.
+	* This method allow to show all the information of a user.<br>
+	* <b>Pre:</b>The user must already been created. username!="", password!= "", age!= null, category!=null.<br>
 	* <b>Post:</b>The information of the user was shown successfully.
 	* @return The information of the user.
 	*/
