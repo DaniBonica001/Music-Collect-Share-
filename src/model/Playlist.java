@@ -1,5 +1,5 @@
 package model;
-public class Playlist{
+public abstract class Playlist{
 	//Constants
 	public final static int MAX_SONGS=50;
 	//Atributes
